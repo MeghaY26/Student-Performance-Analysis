@@ -1,7 +1,7 @@
 import sys
 
 def error_message_details(error,error_detail:sys):
-    _,_,exc_tb=error_detail.exc_info()
+    _,_,exc_tb=error_detail.exc_info() #(type of exception, exception object, traceback) given by sys.exec_info but we are using only traceback
     file_name=exc_tb.tb_frame.f_code.co_filename
     error_message="Error occured in python script name [{0}] line number [{1}] error message[{2}]".format(
      file_name,exc_tb.tb_lineno,str(error)
@@ -16,5 +16,6 @@ class CustomException(Exception):
 
     def __str__(self):
         return self.error_message
+
 
 
